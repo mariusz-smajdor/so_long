@@ -7,22 +7,22 @@ MAKEFLAGS += -s
 SRCS = main.c
 OBJS = $(SRCS:.c=.o)
 
-INCLUDE_DIRS = includes/libft includes/ft_printf
-INCLUDES = ft ftprintf
-LDFLAGS_LIBS = $(addprefix -L, $(INCLUDE_DIRS)) $(addprefix -l, $(INCLUDES))
+LIB_DIRS = libs/libft libs/ft_printf
+LIBS = ft ftprintf
+LDFLAGS_LIBS = $(addprefix -L, $(LIB_DIRS)) $(addprefix -l, $(LIBS))
 
-all: $(INCLUDES) $(NAME)
+all: $(LIBS) $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) $(LDFLAGS_LIBS) -o $@
 	$(MAKE) clean
 
-$(INCLUDES):
-	$(foreach dir, $(INCLUDE_DIRS), make -C $(dir);)
+$(LIBS):
+	$(foreach dir, $(LIB_DIRS), make -C $(dir);)
 
 clean:
 	$(RM) $(OBJS)
-	$(foreach dir, $(INCLUDE_DIRS), $(RM) $(dir)/*.a)
+	$(foreach dir, $(LIB_DIRS), $(RM) $(dir)/*.a)
 
 fclean: clean
 	$(RM) $(NAME)

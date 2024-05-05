@@ -1,4 +1,6 @@
-int  main()
+#include "so_long.h"
+
+int main()
 {
-  return (0);
+	return 0;
 }
