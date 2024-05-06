@@ -4,7 +4,8 @@ FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 MAKEFLAGS += -s
 
-SRCS = main.c
+UTILS = utils/error.c
+SRCS = main.c $(UTILS)
 OBJS = $(SRCS:.c=.o)
 
 LIB_DIRS = libs/libft libs/ft_printf
