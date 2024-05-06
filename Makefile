@@ -5,7 +5,7 @@ RM = rm -f
 MAKEFLAGS += -s
 
 UTILS = utils/error.c
-SRCS = main.c $(UTILS)
+SRCS = main.c parse_map.c $(UTILS)
 OBJS = $(SRCS:.c=.o)
 
 LIB_DIRS = libs/libft libs/ft_printf

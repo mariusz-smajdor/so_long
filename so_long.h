@@ -18,4 +18,6 @@
 
 void	error(char *msg);
 
+char	**parse_map(char *path);
+
 #endif
