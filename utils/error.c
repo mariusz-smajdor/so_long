@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 10:46:12 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/06 10:46:13 by msmajdor         ###   ########.fr       */
+/*   Created: 2024/05/06 10:46:15 by msmajdor          #+#    #+#             */
+/*   Updated: 2024/05/06 10:46:16 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../so_long.h"
 
-# include "libs/libft/libft.h"
-# include "libs/ft_printf/libftprintf.h"
-
-void	error(char *msg);
-
-#endif
+void	error(char *msg)
+{
+	ft_printf("Error\n");
+	ft_printf("%s\n", msg);
+	exit(1);
+}
