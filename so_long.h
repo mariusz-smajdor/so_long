@@ -21,5 +21,6 @@ void	error(char *msg);
 char	**parse_map(char *path);
 void	validate_map(char **map);
 void	check_characters(char **map);
+void	check_shape(char **map);
 
 #endif
