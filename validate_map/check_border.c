@@ -12,32 +12,25 @@
 
 #include "../so_long.h"
 
-static bool	is_wall(char *s)
-{
-	while (s)
-	{
-		if (*s == '1')
-			return (true);
-		s++;
-	}
-	return (false);
-}
-
 void	check_border(char **map)
 {
-	size_t	len;
+	size_t	width;
+	size_t	height;
 	short	i;
+	short	j;
 
+	width = no_newline_len(map[0]) - 1;
 	i = 0;
-	len = no_newline_len(map[i]);
-	if (is_wall(map[i]))
-		error("The map must be surrounded by walls");
 	while (map[i])
-    {
-		if (map[i][0] == '1' || map[i][len - 1] == '1')
-			error("The map must be surrounded by walls");
-        i++;
-    }
-	if (is_wall(map[i - 1]))
-		error("The map must be surrounded by walls");
+		i++;
+	height = i - 1;
+	i = -1;
+	while (++i, map[i])
+	{
+		j = -1;
+		while (++j, map[i][j])
+			if (i == 0 || i == height || j == 0 || j == width)
+				if (map[i][j] != '1')
+					error("The map must be surrounded by walls");
+	}
 }
