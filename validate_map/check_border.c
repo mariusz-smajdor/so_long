@@ -1,25 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_shape.c                                      :+:      :+:    :+:   */
+/*   check_border.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 09:08:47 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/08 09:48:35 by msmajdor         ###   ########.fr       */
+/*   Created: 2024/05/08 10:41:58 by msmajdor          #+#    #+#             */
+/*   Updated: 2024/05/08 10:41:58 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	check_shape(char **map)
+static bool	is_wall(char *s)
+{
+	while (s)
+	{
+		if (*s == '1')
+			return (true);
+		s++;
+	}
+	return (false);
+}
+
+void	check_border(char **map)
 {
 	size_t	len;
-	size_t	i;
+	short	i;
 
 	i = 0;
 	len = no_newline_len(map[i]);
-	while (++i, map[i])
-		if (no_newline_len(map[i]) != len)
-			error("The map must be rectangular");
+	if (is_wall(map[i]))
+		error("The map must be surrounded by walls");
+	while (map[i])
+    {
+		if (map[i][0] == '1' || map[i][len - 1] == '1')
+			error("The map must be surrounded by walls");
+        i++;
+    }
+	if (is_wall(map[i - 1]))
+		error("The map must be surrounded by walls");
 }

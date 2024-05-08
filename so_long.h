@@ -15,6 +15,7 @@
 
 # include "libs/libft/libft.h"
 # include "libs/ft_printf/libftprintf.h"
+# include <stdbool.h>
 
 void	error(char *msg);
 
@@ -22,5 +23,7 @@ char	**parse_map(char *path);
 void	validate_map(char **map);
 void	check_characters(char **map);
 void	check_shape(char **map);
+void	check_border(char **map);
+size_t	no_newline_len(char *s);
 
 #endif

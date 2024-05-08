@@ -5,8 +5,8 @@ FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 UTILS = utils/error.c
-SRCS = main.c parse_map.c validate_map/validate_map.c validate_map/check_characters.c \
-		validate_map/check_shape.c $(UTILS)
+SRCS = main.c parse_map.c validate_map/validate_map.c validate_map/check_characters.c validate_map/check_shape.c \
+		validate_map/check_border.c validate_map/validate_utils.c $(UTILS)
 OBJS = $(SRCS:.c=.o)
 
 LIB_DIRS = libs/libft libs/ft_printf

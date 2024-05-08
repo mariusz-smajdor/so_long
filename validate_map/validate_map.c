@@ -16,4 +16,5 @@ void	validate_map(char **map)
 {
 	check_characters(map);
 	check_shape(map);
+	check_border(map);
 }
