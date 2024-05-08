@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 10:46:12 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/06 10:46:13 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:46:39 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@
 void	error(char *msg);
 
 char	**parse_map(char *path);
+void	validate_map(char **map);
+void	check_characters(char **map);
 
 #endif

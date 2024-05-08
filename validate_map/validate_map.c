@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 10:47:32 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/06 10:47:35 by msmajdor         ###   ########.fr       */
+/*   Created: 2024/05/06 17:33:17 by msmajdor          #+#    #+#             */
+/*   Updated: 2024/05/06 18:45:29 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int ac, char **av)
+void	validate_map(char **map)
 {
-	char **map;
-	size_t	i;
-
-	if (ac != 2)
-		error("You must enter only one map file");
-	map = parse_map(av[1]);
-	validate_map(map);
-	i = 0;
-	while (map[i])
-	{
-		ft_printf("%s\n", map[i]);
-		free(map[i]);
-		i++;
-	}
-	free(map);
-	return (0);
+	check_characters(map);
 }
