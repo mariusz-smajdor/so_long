@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:43:15 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/06 18:54:28 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/08 10:11:05 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,6 @@ void	check_characters(char **map)
 		error("The map has wrong number of players");
 	if (exits != 1)
 		error("The map has wrong number of exits");
+	if (collectibles < 1)
+		error("The map has wrong number of collectibles");
 }
