@@ -19,6 +19,7 @@
 
 void	error(char *msg);
 size_t	map_width(char *s);
+size_t	map_height(char **map);
 
 char	**parse_map(char *path);
 void	validate_map(char **map);
