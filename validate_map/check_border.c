@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 10:41:58 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/08 10:41:58 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:33:55 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,8 @@ void	check_border(char **map)
 	short	i;
 	short	j;
 
-	width = no_newline_len(map[0]) - 1;
-	i = 0;
-	while (map[i])
-		i++;
-	height = i - 1;
+	width = map_width(map[0]) - 1;
+	height = map_height(map) - 1;
 	i = -1;
 	while (++i, map[i])
 	{
