@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   map_width.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 10:46:12 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/06 18:46:39 by msmajdor         ###   ########.fr       */
+/*   Created: 2024/05/08 16:25:02 by msmajdor          #+#    #+#             */
+/*   Updated: 2024/05/08 16:25:40 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../so_long.h"
 
-# include "libs/libft/libft.h"
-# include "libs/ft_printf/libftprintf.h"
-# include <stdbool.h>
+size_t	map_width(char *s)
+{
+	size_t	len;
 
-void	error(char *msg);
-size_t	map_width(char *s);
-
-char	**parse_map(char *path);
-void	validate_map(char **map);
-void	check_characters(char **map);
-void	check_shape(char **map);
-void	check_border(char **map);
-size_t	no_newline_len(char *s);
-
-#endif
+	len = 0;
+	while (s[len] != '\n' && s[len] != '\0')
+		len++;
+	return (len);
+}
