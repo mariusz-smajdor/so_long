@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 10:47:32 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/09 11:45:49 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:39:56 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ int main(int ac, char **av)
 	t_game game;
 
 	if (ac != 2)
-		error("You must enter only one map file");
+		error(NULL, "You must enter only one map file");
 	game.map = parse_map(av[1]);
 	validate_map(game.map);
 	start_game(game);
 	free(game.map);
 	return (0);
 }
-
-

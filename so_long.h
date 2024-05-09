@@ -37,7 +37,7 @@ typedef struct s_game
 	t_txt	txt;
 }	t_game;
 
-void	error(char *msg);
+void	error(char **map, char *msg);
 size_t	map_width(char *s);
 size_t	map_height(char **map);
 
