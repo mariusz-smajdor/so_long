@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 10:46:12 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/06 18:46:39 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:50:36 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,27 @@
 
 # include "libs/libft/libft.h"
 # include "libs/ft_printf/libftprintf.h"
+# include "libs/minilibx/mlx.h"
 # include <stdbool.h>
+
+typedef struct s_txt
+{
+	void	*b;
+	void	*w;
+	void	*c;
+	void	*p;
+	void	*e;
+}	t_txt;
+
+typedef struct s_mlx
+{
+	char	**map;
+	void	*mlx;
+	void	*win;
+	int		w;
+	int		h;
+	t_txt	txt;
+}	t_game;
 
 void	error(char *msg);
 size_t	map_width(char *s);
@@ -26,6 +46,7 @@ void	validate_map(char **map);
 void	check_characters(char **map);
 void	check_shape(char **map);
 void	check_border(char **map);
-size_t	no_newline_len(char *s);
+void	start_game(t_game game);
+void	fill_textures(t_game mlx);
 
 #endif

@@ -6,28 +6,23 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 10:47:32 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/06 10:47:35 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:45:49 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-	char **map;
-	size_t	i;
+	t_game game;
 
 	if (ac != 2)
 		error("You must enter only one map file");
-	map = parse_map(av[1]);
-	validate_map(map);
-	i = 0;
-	while (map[i])
-	{
-		ft_printf("%s\n", map[i]);
-		free(map[i]);
-		i++;
-	}
-	free(map);
+	game.map = parse_map(av[1]);
+	validate_map(game.map);
+	start_game(game);
+	free(game.map);
 	return (0);
 }
+
+
