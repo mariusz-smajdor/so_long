@@ -27,7 +27,7 @@ typedef struct s_txt
 	void	*e;
 }	t_txt;
 
-typedef struct s_mlx
+typedef struct s_game
 {
 	char	**map;
 	void	*mlx;
@@ -48,5 +48,9 @@ void	check_shape(char **map);
 void	check_border(char **map);
 void	start_game(t_game game);
 void	fill_textures(t_game mlx);
+void	move_up(t_game *game);
+void	move_down(t_game *game);
+void	move_left(t_game *game);
+void	move_right(t_game *game);
 
 #endif
