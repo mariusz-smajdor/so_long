@@ -10,8 +10,8 @@ SRCS = main.c parse_map.c validate_map/validate_map.c validate_map/check_charact
 		start_game/events.c $(UTILS)
 OBJS = $(SRCS:.c=.o)
 
-LIB_DIRS = libs/libft libs/ft_printf
-LIBS = ft ftprintf
+LIB_DIRS = libs/libft libs/ft_printf libs/minilibx
+LIBS = ft ftprintf mlx Xext X11
 LDFLAGS_LIBS = $(addprefix -L, $(LIB_DIRS)) $(addprefix -l, $(LIBS))
 
 all: $(LIBS) $(NAME)
