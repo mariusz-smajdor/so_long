@@ -21,6 +21,6 @@ int main(int ac, char **av)
 	game.map = parse_map(av[1]);
 	validate_map(game.map);
 	start_game(game);
-	free(game.map);
+	free_map(game.map);
 	return (0);
 }
