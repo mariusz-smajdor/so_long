@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 10:46:12 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/09 11:50:36 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:35:15 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_game
 	void	*win;
 	int		w;
 	int		h;
+	short	p_pos[2];
+	short	e_pos[2];
 	t_txt	txt;
 }	t_game;
 
