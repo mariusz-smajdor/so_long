@@ -38,6 +38,7 @@ typedef struct s_game
 }	t_game;
 
 void	error(char **map, char *msg);
+void	free_map(char **map);
 size_t	map_width(char *s);
 size_t	map_height(char **map);
 
