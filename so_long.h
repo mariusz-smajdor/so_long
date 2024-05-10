@@ -41,12 +41,14 @@ void	error(char **map, char *msg);
 void	free_map(char **map);
 size_t	map_width(char *s);
 size_t	map_height(char **map);
+void	find_coords(char **map, short *p_pos, short *e_pos);
 
 char	**parse_map(char *path);
 void	validate_map(char **map);
 void	check_characters(char **map);
 void	check_shape(char **map);
 void	check_border(char **map);
+void	check_way(char **map);
 void	start_game(t_game game);
 void	fill_textures(t_game mlx);
 void	move_up(t_game *game);

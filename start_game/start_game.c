@@ -12,31 +12,6 @@
 
 #include "../so_long.h"
 
-static void	find_positions(t_game *game)
-{
-	short	i;
-	short	j;
-
-	i = -1;
-	while (++i, game->map[i])
-	{
-		j = -1;
-		while (++j, game->map[i][j])
-		{
-			if (game->map[i][j] == 'P')
-			{
-				game->p_pos[0] = i;
-				game->p_pos[1] = j;
-			}
-			if (game->map[i][j] == 'E')
-			{
-				game->e_pos[0] = i;
-				game->e_pos[1] = j;
-			}
-		}
-	}
-}
-
 static void	init_textures(t_game *game)
 {
 	game->txt.b = mlx_xpm_file_to_image(game->mlx,
@@ -78,7 +53,7 @@ void	start_game(t_game game)
 	game.w = map_width(game.map[0]);
 	game.h = map_height(game.map);
 	game.win = mlx_new_window(game.mlx, game.w * 50, game.h * 50, "so_long");
-	find_positions(&game);
+	find_coords(&game);
 	init_textures(&game);
 	fill_textures(game);
 	mlx_hook(game.win, 17, 0, close_game, &game);
