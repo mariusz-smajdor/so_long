@@ -6,13 +6,13 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:29:39 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/09 16:38:33 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:38:10 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	fill_texture(t_game game, void *txt, short x, short y)
+static void	fill_texture(t_game game, void *txt, short x, short y)
 {
 	mlx_put_image_to_window(game.mlx, game.win, txt, x, y);
 }
@@ -35,7 +35,7 @@ void	fill_textures(t_game game)
 			if (game.map[i][j] == 'C')
 				fill_texture(game, game.txt.c, j * 50, i * 50);
 			if (game.map[i][j] == 'P')
-				fill_texture(game, game.txt.b, p * 50, i * 50);
+				fill_texture(game, game.txt.p, j * 50, i * 50);
 			if (game.map[i][j] == 'E')
 				fill_texture(game, game.txt.e, j * 50, i * 50);
 		}
