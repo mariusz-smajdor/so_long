@@ -28,9 +28,15 @@ static void	init_textures(t_game *game)
 
 int	close_game(t_game *game)
 {
+	mlx_destroy_image(game->mlx, game->txt.b);
+	mlx_destroy_image(game->mlx, game->txt.w);
+	mlx_destroy_image(game->mlx, game->txt.c);
+	mlx_destroy_image(game->mlx, game->txt.p);
+	mlx_destroy_image(game->mlx, game->txt.e);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
-	free(game->map);
+	free(game->mlx);
+	free_map(game->map);
 	exit(0);
 }
 
