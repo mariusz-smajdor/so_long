@@ -44,6 +44,7 @@ void	free_map(char **map);
 size_t	map_width(char *s);
 size_t	map_height(char **map);
 void	find_coords(char **map, short *p_pos, short *e_pos);
+bool	is_all_collected(char **map);
 
 char	**parse_map(char *path);
 void	validate_map(char **map);
