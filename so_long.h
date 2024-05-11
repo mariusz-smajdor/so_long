@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 10:46:12 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/10 13:35:15 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/11 12:39:08 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,7 @@ void	check_border(char **map);
 void	check_way(char **map);
 void	start_game(t_game game);
 void	fill_textures(t_game mlx);
-void	move_up(t_game *game);
-void	move_down(t_game *game);
-void	move_left(t_game *game);
-void	move_right(t_game *game);
+void	move_player(t_game *game, short row_offset, short col_offset);
+int		close_game(t_game *game);
 
 #endif

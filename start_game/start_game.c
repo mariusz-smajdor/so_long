@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:20:50 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/09 17:03:24 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/11 12:22:11 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,16 @@ static void	init_textures(t_game *game)
 			"textures/e.xpm", &(game->w), &(game->h));
 }
 
-int	close_game(t_game *game)
-{
-	mlx_destroy_image(game->mlx, game->txt.b);
-	mlx_destroy_image(game->mlx, game->txt.w);
-	mlx_destroy_image(game->mlx, game->txt.c);
-	mlx_destroy_image(game->mlx, game->txt.p);
-	mlx_destroy_image(game->mlx, game->txt.e);
-	mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
-	free_map(game->map);
-	exit(0);
-}
-
 int	handle_key_events(int keycode, t_game *game)
 {
 	if (keycode == 119)
-		move_up(game);
+		move_player(game, -1, 0);
 	if (keycode == 115)
-		move_down(game);
+		move_player(game, 1, 0);
 	if (keycode == 97)
-		move_left(game);
+		move_player(game, 0, -1);
 	if (keycode == 100)
-		move_right(game);
+		move_player(game, 0, 1);
 	return (0);
 }
 
@@ -59,7 +45,7 @@ void	start_game(t_game game)
 	game.w = map_width(game.map[0]);
 	game.h = map_height(game.map);
 	game.win = mlx_new_window(game.mlx, game.w * 50, game.h * 50, "so_long");
-	find_coords(&game);
+	find_coords(game.map, game.p_pos, game.e_pos);
 	init_textures(&game);
 	fill_textures(game);
 	mlx_hook(game.win, 17, 0, close_game, &game);
