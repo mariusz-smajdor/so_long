@@ -4,7 +4,7 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-UTILS = utils/error.c utils/free_map.c utils/map_width.c utils/map_height.c utils/find_coords.c
+UTILS = utils/error.c utils/free_map.c utils/map_width.c utils/map_height.c utils/find_coords.c utils/is_all_collected.c
 SRCS = main.c parse_map.c validate_map/validate_map.c validate_map/check_characters.c validate_map/check_shape.c \
 		validate_map/check_border.c validate_map/check_way.c start_game/start_game.c start_game/fill_textures.c \
 		start_game/events.c $(UTILS)
