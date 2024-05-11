@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:50:37 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/11 12:41:02 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:24:18 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,15 @@ int	close_game(t_game *game)
 
 void	move_player(t_game *game, short row_offset, short col_offset)
 {
-	short	new_row;
-	short	new_col;
+	static short	moves = 0;
+	short			new_row;
+	short			new_col;
 
 	new_row = game->p_pos[0] + row_offset;
 	new_col = game->p_pos[1] + col_offset;
 	if (game->map[new_row][new_col] == '1')
 		return ;
+	moves++;
 	if (game->map)
 		game->map[new_row][new_col] = 'P';
 	if (new_row == game->e_pos[0] && new_col == game->e_pos[1])
