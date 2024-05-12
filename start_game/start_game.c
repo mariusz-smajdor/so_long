@@ -36,6 +36,8 @@ int	handle_key_events(int keycode, t_game *game)
 		move_player(game, 0, -1);
 	if (keycode == 100)
 		move_player(game, 0, 1);
+	if (keycode == 65307)
+		close_game(game);
 	return (0);
 }
 
