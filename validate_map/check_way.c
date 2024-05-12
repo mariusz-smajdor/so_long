@@ -6,27 +6,11 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:44:50 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/09 19:04:55 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/12 18:30:51 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
-static bool	is_all_collected(char **map)
-{
-	short	i;
-	short	j;
-
-	i = -1;
-	while (++i, map[i])
-	{
-		j = -1;
-		while (++j, map[i][j] != '\0')
-			if (map[i][j] == 'C' || map[i][j] == 'E')
-				return (false);
-	}
-	return (true);
-}
 
 static void	flood_fill(char **map, int height, int y, int x)
 {
@@ -34,7 +18,7 @@ static void	flood_fill(char **map, int height, int y, int x)
 
 	width = map_width(map[0]);
 	if (y < 0 || y >= height || x < 0 || x >= width
-		|| map[y][x] == '1' || map[y][x] == 'V')
+		|| map[y][x] == '1' || map[y][x] == 'V' || map[y][x] == 'M')
 	{
 		return ;
 	}
