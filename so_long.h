@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 10:46:12 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/11 12:39:08 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/12 17:50:28 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_txt
 	void	*w;
 	void	*c;
 	void	*p;
+	void	*m;
 	void	*e;
 }	t_txt;
 

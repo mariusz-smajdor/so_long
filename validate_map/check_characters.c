@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:43:15 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/09 17:38:05 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/12 17:54:13 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static bool	check_character(char ch, size_t *p, size_t *e, size_t *c)
 		(*e)++;
 	else if (ch == 'C')
 		(*c)++;
-	else if (ch != '0' && ch != '1')
+	else if (ch != '0' && ch != '1' && ch != 'M')
 		return (false);
 	return (true);
 }
@@ -49,5 +49,5 @@ void	check_characters(char **map)
 	if (exits != 1)
 		error(map, "The map has wrong number of exits");
 	if (collectibles < 1)
-		error(map,"The map has wrong number of collectibles");
+		error(map, "The map has wrong number of collectibles");
 }

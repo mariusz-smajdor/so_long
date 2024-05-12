@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:50:37 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/11 17:24:18 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/12 17:50:39 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	close_game(t_game *game)
 	mlx_destroy_image(game->mlx, game->txt.w);
 	mlx_destroy_image(game->mlx, game->txt.c);
 	mlx_destroy_image(game->mlx, game->txt.p);
+	mlx_destroy_image(game->mlx, game->txt.m);
 	mlx_destroy_image(game->mlx, game->txt.e);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);

@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:29:39 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/10 16:38:10 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/12 17:55:14 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	fill_textures(t_game game)
 				fill_texture(game, game.txt.c, j * 50, i * 50);
 			if (game.map[i][j] == 'P')
 				fill_texture(game, game.txt.p, j * 50, i * 50);
+			if (game.map[i][j] == 'M')
+				fill_texture(game, game.txt.m, j * 50, i * 50);
 			if (game.map[i][j] == 'E')
 				fill_texture(game, game.txt.e, j * 50, i * 50);
 		}

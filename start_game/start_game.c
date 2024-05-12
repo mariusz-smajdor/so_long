@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:20:50 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/11 12:22:11 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/12 17:55:27 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static void	init_textures(t_game *game)
 			"textures/c.xpm", &(game->w), &(game->h));
 	game->txt.p = mlx_xpm_file_to_image(game->mlx,
 			"textures/p.xpm", &(game->w), &(game->h));
+	game->txt.m = mlx_xpm_file_to_image(game->mlx,
+			"textures/m.xpm", &(game->w), &(game->h));
 	game->txt.e = mlx_xpm_file_to_image(game->mlx,
 			"textures/e.xpm", &(game->w), &(game->h));
 }
