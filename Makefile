@@ -14,7 +14,15 @@ LIB_DIRS = libs/libft libs/ft_printf libs/minilibx
 LIBS = ft ftprintf mlx Xext X11
 LDFLAGS_LIBS = $(addprefix -L, $(LIB_DIRS)) $(addprefix -l, $(LIBS))
 
-all: $(LIBS) $(NAME)
+MINILIBX_REPO = https://github.com/42Paris/minilibx-linux.git
+MINILIBX_DIR = libs/minilibx
+
+all: $(MINILIBX_DIR) $(LIBS) $(NAME)
+
+$(MINILIBX_DIR):
+	@if [ ! -d "$(MINILIBX_DIR)" ]; then \
+		git clone $(MINILIBX_REPO) $(MINILIBX_DIR); \
+	fi
 
 $(LIBS):
 	$(foreach dir, $(LIB_DIRS), make -C $(dir);)
@@ -30,4 +38,4 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re $(MINILIBX_DIR)
