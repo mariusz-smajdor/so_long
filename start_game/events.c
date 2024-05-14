@@ -6,11 +6,21 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:50:37 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/14 12:30:16 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:32:17 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+static void	display_moves(t_game *game, short moves)
+{
+	char	*str;
+
+	str = ft_itoa(moves);
+	mlx_string_put(game->mlx, game->win, 10, 20, 0xFFFFFFFF, "Moves: ");
+	mlx_string_put(game->mlx, game->win, 70, 20, 0xFFFFFFFF, str);
+	free(str);
+}
 
 int	close_game(t_game *game)
 {
@@ -55,4 +65,5 @@ void	move_player(t_game *game, short x_off, short y_off, char key)
 	game->p_pos[0] = new_row;
 	game->p_pos[1] = new_col;
 	fill_textures(*game, key);
+	display_moves(game, moves);
 }
