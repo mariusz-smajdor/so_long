@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:50:37 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/12 17:50:39 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/14 12:30:16 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	close_game(t_game *game)
 	mlx_destroy_image(game->mlx, game->txt.b);
 	mlx_destroy_image(game->mlx, game->txt.w);
 	mlx_destroy_image(game->mlx, game->txt.c);
-	mlx_destroy_image(game->mlx, game->txt.p);
+	mlx_destroy_image(game->mlx, game->txt.pu);
+	mlx_destroy_image(game->mlx, game->txt.pd);
+	mlx_destroy_image(game->mlx, game->txt.pl);
+	mlx_destroy_image(game->mlx, game->txt.pr);
 	mlx_destroy_image(game->mlx, game->txt.m);
 	mlx_destroy_image(game->mlx, game->txt.e);
 	mlx_destroy_window(game->mlx, game->win);
@@ -27,16 +30,18 @@ int	close_game(t_game *game)
 	exit(0);
 }
 
-void	move_player(t_game *game, short row_offset, short col_offset)
+void	move_player(t_game *game, short x_off, short y_off, char key)
 {
 	static short	moves = 0;
 	short			new_row;
 	short			new_col;
 
-	new_row = game->p_pos[0] + row_offset;
-	new_col = game->p_pos[1] + col_offset;
+	new_row = game->p_pos[0] + x_off;
+	new_col = game->p_pos[1] + y_off;
 	if (game->map[new_row][new_col] == '1')
 		return ;
+	if (game->map[new_row][new_col] == 'M')
+		close_game(game);
 	moves++;
 	if (game->map)
 		game->map[new_row][new_col] = 'P';
@@ -49,5 +54,5 @@ void	move_player(t_game *game, short row_offset, short col_offset)
 		game->map[game->p_pos[0]][game->p_pos[1]] = '0';
 	game->p_pos[0] = new_row;
 	game->p_pos[1] = new_col;
-	fill_textures(*game);
+	fill_textures(*game, key);
 }
