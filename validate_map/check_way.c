@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:44:50 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/05/12 18:30:51 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:42:50 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ static void	flood_fill(char **map, int height, int y, int x)
 	width = map_width(map[0]);
 	if (y < 0 || y >= height || x < 0 || x >= width
 		|| map[y][x] == '1' || map[y][x] == 'V' || map[y][x] == 'M')
-	{
 		return ;
-	}
 	map[y][x] = 'V';
 	flood_fill(map, height, y - 1, x);
 	flood_fill(map, height, y + 1, x);
@@ -62,7 +60,7 @@ void	check_way(char **map)
 	if (!map_cpy)
 		error(map, "Allocation failed.");
 	find_coords(map_cpy, p_pos, NULL);
-	flood_fill(map_cpy, height, p_pos[1], p_pos[0]);
+	flood_fill(map_cpy, height, p_pos[0], p_pos[1]);
 	if (!is_all_collected(map_cpy))
 	{
 		free_map(map_cpy);
